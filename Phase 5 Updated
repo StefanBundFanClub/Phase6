@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Kingdom Hearts Gallery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="title">
+        <h1>Adriel Maniago's Page</h1>
+    </div>
+    <div class="navigationBar">
+        <div class="navBar"><a href="https://s3-us-west-2.amazonaws.com/cis3110ec/Phase2.html">Evan's Page</a></div>
+        <div class="navBar"><a href="https://s3.us-east-2.amazonaws.com/fallcis3110/Phase+3/Phase_2.html">Leo's Page</a></div>
+        <div class="navBar"><a href="https://s3.us-east-2.amazonaws.com/cis3110phase333/phase3.html">Isiah's Page</a></div>
+        <div class="navBar"><a href="https://s3-us-west-2.amazonaws.com/311018phase2/phase3/Ph3GennevyGrid.html">Gennevy's Page</a></div>
+    </div>
+    <script>
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+
+        var images = ["1.jpg", "2.jpg", "3.jpg", "4.png", "5.png", "6.png"];
+        var titles = ["Sora",
+            "Kairi",
+            "Riku",
+            "Aqua",
+            "Terra",
+            "Ventus"
+        ];
+
+        function setCookie(cname) {
+            document.cookie = "image=" + cname;
+            if (cname == "") {
+                document.cookie = "image=";
+            }
+        }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(";");
+            console.log(ca);
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+
+
+        var arrayIndex = [0, 1, 2, 3, 4, 5];
+        console.log(images);
+        console.log(arrayIndex);
+
+        var url;
+        var indexNo, titleUpThere;
+        var overallDiv = document.createElement("div");
+        var currentCookie = getCookie("image");
+        overallDiv.setAttribute("class", "grid");
+        for (var index = 0; index < images.length; index++) {
+            url = images[index];
+            indexNo = index;
+            titleUpThere = titles[index];
+            urlOfDetailPage = "detailPage.html?" + "img=" + url + "&indexNo=" + indexNo;
+            var titleDiv = document.createElement("div");
+            var h3Header = document.createElement("h3");
+            var textNode = document.createTextNode(titleUpThere);
+            var boxDiv = document.createElement("div");
+
+            var group = document.createElement("div");
+            group.classList.add("btn-group");
+            group.setAttribute("role", "group");
+            group.setAttribute("aria-label", "Set Favorites");
+
+            var newButton = document.createElement("button");
+            newButton.classList.add("btn", "btn-secondary");
+            newButton.setAttribute("type", "button");
+            newButton.setAttribute("data-toggle", "tooltip"); //tooltips
+            newButton.setAttribute("data-placement", "top"); //tooltips on top
+            newButton.setAttribute("title", "Favorite");
+            newButton.setAttribute("id", "fav" + index);
+            newButton.appendChild(document.createTextNode('Favorite'));
+            var favStar = document.createElement("img");
+            var unFaveButton = document.createElement("button");
+            unFaveButton.classList.add("btn", "btn-secondary");
+            unFaveButton.setAttribute("type", "button");
+            unFaveButton.setAttribute("data-toggle", "tooltip"); //tooltips
+            unFaveButton.setAttribute("data-placement", "top"); //tooltips on top
+            unFaveButton.setAttribute("title", "unFavorite");
+            unFaveButton.setAttribute("id", "unfav" + index);
+            unFaveButton.appendChild(document.createTextNode('UnFavorite'));
+            if (currentCookie == images[index]) {
+                favStar.setAttribute("src", "star.jpg");
+                favStar.setAttribute("alt", "Star");
+                favStar.setAttribute("class", "picStar");
+                newButton.setAttribute("id", "pic" + images[index]);
+                newButton.setAttribute("class", "buttonsHidden");
+                unFaveButton.setAttribute("id", "unfavoriteIt");
+                unFaveButton.setAttribute("class", "buttons");
+                unFaveButton.innerHTML = "Unfavorite";
+            } else {
+                newButton.setAttribute("id", "pic" + images[index]);
+                newButton.setAttribute("class", "buttons");
+                newButton.innerHTML = "Favoite!";
+                unFaveButton.setAttribute("id", "unfavoriteIt");
+                unFaveButton.setAttribute("class", "buttonsHidden");
+            }
+            boxDiv.setAttribute("class", "box");
+            h3Header.setAttribute("class", "centering");
+            h3Header.appendChild(textNode);
+            titleDiv.appendChild(h3Header);
+            var imgDiv = document.createElement("div");
+            imgDiv.setAttribute("class", "divImage");
+            var imgInPage = document.createElement("img");
+            imgInPage.setAttribute("src", url);
+            imgInPage.setAttribute("class", "pictureImage");
+            var link = document.createElement("a");
+            link.setAttribute("href", urlOfDetailPage);
+            link.appendChild(imgInPage);
+            imgDiv.appendChild(link);
+            boxDiv.appendChild(h3Header);
+            boxDiv.appendChild(link);
+            if (currentCookie == images[index]) {
+                boxDiv.appendChild(favStar);
+                boxDiv.appendChild(newButton);
+                boxDiv.appendChild(unFaveButton);
+            } else {
+                boxDiv.appendChild(newButton);
+            }
+            overallDiv.appendChild(boxDiv);
+        }
+        document.body.appendChild(overallDiv);
+        document.getElementById('pic' + images[0]).onclick = function() {
+            setCookie(images[0]);
+            this.innerHTML = "GOT IT!";
+            this.disabled = true;
+        }
+        document.getElementById('pic' + images[1]).onclick = function() {
+            setCookie(images[1]);
+            this.innerHTML = "GOT IT!";
+            this.disabled = true;
+        }
+        document.getElementById('pic' + images[2]).onclick = function() {
+            setCookie(images[2]);
+            this.innerHTML = "GOT IT!";
+            this.disabled = true;
+        }
+        document.getElementById('pic' + images[3]).onclick = function() {
+            setCookie(images[3]);
+            this.innerHTML = "GOT IT!";
+            this.disabled = true;
+        }
+        document.getElementById('pic' + images[4]).onclick = function() {
+            setCookie(images[4]);
+            this.innerHTML = "GOT IT!";
+            this.disabled = true;
+        }
+        document.getElementById('pic' + images[5]).onclick = function() {
+            setCookie(images[5]);
+            this.innerHTML = "GOT IT!";
+            this.disabled = true;
+        }
+        document.getElementById('unfavoriteIt').onclick = function() {
+            setCookie("");
+            this.innerHTML = "GOT IT!";
+            this.disabled = true;
+        }
+        var u = getCookie("image");
+        console.log(u);
+    </script>
+</body>
+
+</html>
