@@ -8,6 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
 </head>
 
 <body>
@@ -21,6 +26,10 @@
         <div class="navBar"><a href="https://s3-us-west-2.amazonaws.com/311018phase2/phase3/Ph3GennevyGrid.html">Gennevy's Page</a></div>
     </div>
     <script>
+        $(function () {
+                $('[data-toggle="tooltip"]').tooltip()
+            })
+            
         var images = ["1.jpg", "2.jpg", "3.jpg", "4.png", "5.png", "6.png"];
         var titles = ["Sora",
             "Kairi",
@@ -52,6 +61,8 @@
             }
             return "";
         }
+        
+        
 
         var arrayIndex = [0, 1, 2, 3, 4, 5];
         console.log(images);
@@ -71,9 +82,29 @@
             var h3Header = document.createElement("h3");
             var textNode = document.createTextNode(titleUpThere);
             var boxDiv = document.createElement("div");
+            
+            var group = document.createElement("div");
+                group.classList.add("btn-group");
+                group.setAttribute("role","group");
+                group.setAttribute("aria-label","Set Favorites");
+            
             var newButton = document.createElement("button");
+            newButton.classList.add("btn","btn-secondary");
+                newButton.setAttribute("type","button"); 
+                newButton.setAttribute("data-toggle","tooltip"); //tooltips
+                newButton.setAttribute("data-placement","top"); //tooltips on top
+                newButton.setAttribute("title","Favorite"); 
+                newButton.setAttribute("id", "fav" + index);
+                newButton.appendChild(document.createTextNode('Favorite'));
             var favStar = document.createElement("img");
             var unFaveButton = document.createElement("button");
+            unFaveButton.classList.add("btn","btn-secondary");
+                unFaveButton.setAttribute("type","button"); 
+                unFaveButton.setAttribute("data-toggle","tooltip");  //tooltips
+                unFaveButton.setAttribute("data-placement","top"); //tooltips on top
+                unFaveButton.setAttribute("title","unFavorite"); 
+                unFaveButton.setAttribute("id", "unfav" + index);
+                unFaveButton.appendChild(document.createTextNode('UnFavorite'));
             if (currentCookie == images[index]) {
                 favStar.setAttribute("src", "star.jpg");
                 favStar.setAttribute("alt", "Star");
