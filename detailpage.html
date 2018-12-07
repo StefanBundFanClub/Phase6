@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <title>Detail Page</title>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownId">
+                        <a class="dropdown-item" href="#">Action 1</a>
+                        <a class="dropdown-item" href="#">Action 2</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+</body>
+<script>
+    //Make sure you change your image names to these. or just change this array
+    var images = ["pic1.png", "pic2.png", "pics3.jpg", "pic4.jpg"];
+
+    //change names here
+    var movies = ["Avengers: Infinity War", "Black Panther", "Ant-Man and the Wasp", "Deadpool 2"];
+
+    //Names of the directors
+    var directors = ["Anthony Russo, Joe Russo", "Ryan Coogler", "Peyton Reed", "David Leitch"];
+
+    //Box Office Numbers
+    var boxOffice = ["2.047 Billion Dollars", "1.344 Billion Dollars", "622.6 Million Dollars", "734.2 Million Dollars"];
+
+    //One Sentence Description
+    var description = ["Iron Man, Thor, the Hulk and the rest of the Avengers unite to battle their most powerful enemy yet -- the evil Thanos. ",
+        "After the death of his father, T'Challa returns home to the African nation of Wakanda to take his rightful place as king. ",
+        "Scott Lang is grappling with the consequences of his choices as both a superhero and a father.",
+        "Wisecracking mercenary Deadpool meets Russell, an angry teenage mutant who lives at an orphanage."
+    ]
+
+    var titleOfPage = "Action Movies";
+    var titleDiv = document.createElement("h1");
+    titleDiv.setAttribute("class", "title");
+    titleDiv.appendChild(document.createTextNode(titleOfPage));
+    document.body.appendChild(titleDiv);
+    document.title = titleOfPage;
+    //The div where everything will be inside of it.
+    var gridDiv = document.createElement("div");
+    gridDiv.setAttribute("class", "innerWrapperDetail");
+
+    //For loop to enter Data
+    for (var index = 0; index < images.length; index++) {
+        var imageName = images[index];
+        var movieName = movies[index];
+        var directorName = "Director: " + directors[index];
+        var boxOfficeAmount = "Box Office: " + boxOffice[index];
+        var movieDescription = description[index];
+
+        //Title of page
+        var titlePage = "Action";
+        var titleH1 = document.createElement("h1");
+        titleH1.setAttribute("class", "pictureImage");
+
+        //card creation. To add another class to card, just space and add class name
+        var card = document.createElement("div");
+        card.setAttribute("class", "card");
+
+        //card content creation
+
+        //image creation
+        var cardImage = document.createElement("img");
+        cardImage.setAttribute("class", "pictureImage")
+        cardImage.setAttribute("src", imageName);
+
+        //card title creation
+        var cardTitle = document.createElement("h1");
+        cardTitle.setAttribute("class", "card-header");
+        cardTitle.setAttribute("style", "text-align: center")
+        cardTitle.appendChild(document.createTextNode(movieName));
+
+        //card content
+        var directorText = document.createElement("p");
+        directorText.setAttribute("class", "card-text");
+        directorText.appendChild(document.createTextNode(directorName));
+
+        var boxOfficeText = document.createElement("p");
+        boxOfficeText.setAttribute("class", "card-text");
+        boxOfficeText.appendChild(document.createTextNode(boxOfficeAmount));
+
+        var descriptionCard = document.createElement("p");
+        descriptionCard.setAttribute("class", "card-text");
+        descriptionCard.appendChild(document.createTextNode(movieDescription));
+
+        //Creating the card content
+        card.appendChild(cardTitle);
+        card.appendChild(cardImage);
+        card.appendChild(directorText);
+        card.appendChild(boxOfficeText);
+        card.appendChild(descriptionCard);
+
+        //appending to inner wrap div
+        gridDiv.appendChild(card);
+
+    }
+    document.body.appendChild(gridDiv);
+</script>
+
+</html>
