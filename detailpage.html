@@ -8,7 +8,7 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="phase7.css" />
+    <link href="https://s3-us-west-2.amazonaws.com/cis3110ec/Phase6&7.css" rel="stylesheet" type="text/css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
@@ -42,29 +42,30 @@
     <div class="horizonNavBar">
         <ul>
             <li>
-                <a href="">Home</a>
+                <a href="https://s3.us-east-2.amazonaws.com/cis3110assignment3/phase6.html">Home</a>
             </li>
             <li>
-                <a href="Phase6&7movieGenres.html">Movie Genres</a>
+                <a href="https://s3-us-west-2.amazonaws.com/cis3110ec/Phase6&7movieGenres.html">Movie Genres</a>
             </li>
             <li>
-                <a href="Phase6&7registration.html">Create an Account</a>
+                <a href="https://s3-us-west-2.amazonaws.com/cis3110ec/Phase6&7registration.html">Create an Account</a>
             </li>
             <li>
-                <a href="">Terms of Use</a>
+                <a href="https://s3.us-east-2.amazonaws.com/fallcis3110/Final/Terms+and+Conditions.html">Terms of Use</a>
             </li>
             <li>
-                <a href="Phase6&7privacyPolicy.html">Privacy Policy</a>
+                <a href="https://s3-us-west-2.amazonaws.com/cis3110ec/Phase6&7privacyPolicy.html">Privacy Policy</a>
             </li>
             <li>
                 <a href="https://s3-us-west-2.amazonaws.com/311018/Final/contactus.html">Contact Us</a>
             </li>
         </ul>
     </div>
+
 </body>
 <script>
     //Make sure you change your image names to these. or just change this array
-    var images = ["pic1.png", "pic2.png", "pics3.jpg", "pic4.jpg"];
+    var images = ["infinitywar.jpg", "blackpanther.jpg", "antman.jpg", "deadpool.jpg"];
 
     //change names here
     var movies = ["Avengers: Infinity War", "Black Panther", "Ant-Man and the Wasp", "Deadpool 2"];
@@ -81,6 +82,7 @@
         "Scott Lang is grappling with the consequences of his choices as both a superhero and a father.",
         "Wisecracking mercenary Deadpool meets Russell, an angry teenage mutant who lives at an orphanage."
     ]
+
     //adds title to the top of the page. Change titleOfPage to change your title.
     var titleOfPage = "Action Movies";
     var titleDiv = document.createElement("h1");
@@ -107,7 +109,7 @@
 
         //card creation. To add another class to card, just space and add class name
         var card = document.createElement("div");
-        card.setAttribute("class", "card");
+        card.setAttribute("class", "card card-background");
 
         //card content creation
 
@@ -118,7 +120,7 @@
 
         //card title creation
         var cardTitle = document.createElement("h1");
-        cardTitle.setAttribute("class", "card-header");
+        cardTitle.setAttribute("class", "card-header card-header-background");
         cardTitle.setAttribute("style", "text-align: center")
         cardTitle.appendChild(document.createTextNode(movieName));
 
