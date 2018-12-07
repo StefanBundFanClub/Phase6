@@ -1,0 +1,134 @@
+.pictureImage {
+    width: auto;
+    height: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body {
+    background-color: #868e96;
+}
+
+body.detailPage {
+    background-color: white;
+}
+
+.divImage {
+    width: 100%;
+    height: auto;
+    padding: 5px;
+}
+
+.divDetail {
+    width: 30%;
+    height: 200px;
+    padding: 3px;
+    align-content: center;
+}
+
+.pctImg {
+    width: 500px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h3.centering {
+    text-align: center;
+    font-size: 500%;
+}
+
+p.centerDescription {
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+}
+
+.box {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 40%;
+    margin: 3px;
+    border: 3px;
+}
+
+.picStar {
+    width: 50px;
+    height: auto;
+}
+
+.picStarDetail {
+    width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h3.detailCenter {
+    text-align: center;
+}
+
+.buttons {
+    align-content: center;
+}
+
+.buttonsHidden {
+    display: none;
+}
+
+.navigationBar {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    background-color: blue;
+    border-radius: 10px;
+}
+
+.navBar {
+    font-size: 24px;
+    color: floralwhite;
+    text-align: center;
+    padding: 5px;
+}
+
+.navBar a {
+    color: lavender;
+}
+
+.navBar a.visited {
+    color: lavender;
+}
+
+.navBar a:hover {
+    color: khaki;
+}
+
+.navBar:hover {
+    background-color: rgb(214, 27, 2);
+    border-radius: 10px;
+    margin: 0px;
+}
+
+.title {
+    text-align: center;
+}
+
+.innerWrapperDetail {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 50px;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.headerImg {
+    width: 60px;
+    height: 60px;
+}
