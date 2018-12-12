@@ -64,7 +64,6 @@
 
 </body>
 <script>
-	var url = window.location.href;
     //Make sure you change your image names to these. or just change this array
     var images = ["https://s3-us-west-2.amazonaws.com/cis3110ec/A_Quiet_Place.jpg", "https://s3-us-west-2.amazonaws.com/cis3110ec/Halloween_2018.jpg", "https://s3-us-west-2.amazonaws.com/cis3110ec/Hereditary.jpg", "https://s3-us-west-2.amazonaws.com/cis3110ec/Unsane.png", "https://s3-us-west-2.amazonaws.com/cis3110ec/Slender_Man.jpg", "https://s3-us-west-2.amazonaws.com/cis3110ec/Overlord.jpg"];
     
@@ -85,8 +84,8 @@
 		"The plot follows several American soldiers who are dropped behind enemy lines the day before D-Day and discover secret Nazi experiments."
     ];
 	
-	var x = breakUpURLParameters(url);
 	var index = window.location.href;
+	var x = breakUpURLParameters(index);
 	console.log("index = " + index);
 	var indexNo = x.search.index;
 	
