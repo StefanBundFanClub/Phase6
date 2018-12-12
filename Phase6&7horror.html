@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://s3-us-west-1.amazonaws.com/amaniago/main.css" />
+    <link href="https://s3-us-west-2.amazonaws.com/cis3110ec/Phase6&7.css" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <title>Detail Page</title>
+    <style>
+        .title {
+            text-align: center;
+        }
+        
+        .innerWrapperDetail {
+            display: grid;
+            grid-template-columns: 33% 33% 34%;
+            grid-gap: 35px;
+            padding-left: 5%;
+            padding-right: 10%;
+        }
+        
+        .pictureImage {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="titleHeader"><img src="https://s3-us-west-2.amazonaws.com/cis3110ec/Movie_Clip.png" class="headerImg" /> Movie Plaza <img src="https://s3-us-west-2.amazonaws.com/cis3110ec/Movie_Clip.png" class="headerImg" /></h1>
+    </div>
+    <div class="horizonNavBar">
+        <ul>
+            <li>
+                <a href="https://s3.us-east-2.amazonaws.com/cis3110assignment3/phase6.html">Home</a>
+            </li>
+            <li>
+                <a href="https://s3-us-west-2.amazonaws.com/cis3110ec/Phase6&7movieGenres.html">Movie Genres</a>
+            </li>
+            <li>
+                <a href="https://s3-us-west-2.amazonaws.com/cis3110ec/Phase6&7registration.html">Create an Account</a>
+            </li>
+            <li>
+                <a href="https://s3.us-east-2.amazonaws.com/fallcis3110/Final/Terms+and+Conditions.html">Terms of Use</a>
+            </li>
+            <li>
+                <a href="https://s3-us-west-2.amazonaws.com/cis3110ec/Phase6&7privacyPolicy.html">Privacy Policy</a>
+            </li>
+            <li>
+                <a href="https://s3-us-west-2.amazonaws.com/311018/Final/contactus.html">Contact Us</a>
+            </li>
+        </ul>
+    </div>
+
+</body>
+<script>
+	var url = window.location.href;
+    //Make sure you change your image names to these. or just change this array
+    var images = ["https://s3-us-west-2.amazonaws.com/cis3110ec/A_Quiet_Place.jpg", "https://s3-us-west-2.amazonaws.com/cis3110ec/Halloween_2018.jpg", "https://s3-us-west-2.amazonaws.com/cis3110ec/Hereditary.jpg", "https://s3-us-west-2.amazonaws.com/cis3110ec/Unsane.png", "https://s3-us-west-2.amazonaws.com/cis3110ec/Slender_Man.jpg", "https://s3-us-west-2.amazonaws.com/cis3110ec/Overlord.jpg"];
+    
+	var gridTitles = ["Action Movies", "Comedy Movies", "Horror Movies", "Drama Movies", "Sci-Fi Movies", "Fantasy Movies"];
+	
+	//change names here
+    var movies = ["A Quiet Place", "Halloween 2018", "Hereditary", "Unsane", "Slender Man", "Overlord"];
+    //Names of the directors
+    var directors = ["John Krasinski", "David G Green", "Ari Aster", "Steven Soderbergh", "Sylvain White", "Julius Avery"];
+    //Box Office Numbers
+    var boxOffice = ["340.7 Million Dollars", "253.1 Million Dollars", "79.3 Million Dollars", "14.2 Million Dollars", "51.7 Million Dollars", "40.3 Million Dollars"];
+    //One Sentence Description
+    var description = ["The plot revolves around a family facing struggles in a post-apocalyptic world inhabited by blind monsters with an acute sense of hearing.",
+        "The plot follows a post-traumatic Laurie Strode who prepares to face Michael Myers in a final showdown on Halloween night, forty years after she escaped his killing spree.",
+		"It stars Toni Collette, Alex Wolff, Milly Shapiro and Gabriel Byrne as a family haunted after the death of their secretive grandmother.",
+        "The film stars Claire Foy, Joshua Leonard, Jay Pharoah, Juno Temple, Aimee Mullins, and Amy Irving, and follows a woman confined to a mental institution after she is pursued by a stalker.",
+		"In a small town in Massachusetts, four friends, Wren, Hallie, Chloe and Katie summon the Slender Man.",
+		"The plot follows several American soldiers who are dropped behind enemy lines the day before D-Day and discover secret Nazi experiments."
+    ];
+	
+	var x = breakUpURLParameters(url);
+	var index = window.location.href;
+	console.log("index = " + index);
+	var indexNo = x.search.index;
+	
+    //adds title to the top of the page. Change titleOfPage to change your title.
+    var titleOfPage = gridTitles[indexNo];
+    var titleDiv = document.createElement("h1");
+    titleDiv.setAttribute("class", "title");
+    titleDiv.setAttribute("style", "color: #FED039");
+    titleDiv.appendChild(document.createTextNode(titleOfPage));
+    document.body.appendChild(titleDiv);
+    document.title = titleOfPage;
+    //The div where everything will be inside of it.
+    var gridDiv = document.createElement("div");
+    gridDiv.setAttribute("class", "innerWrapperDetail");
+    //For loop to enter Data
+    for (var index = 0; index < images.length; index++) {
+        var imageName = images[index];
+        var movieName = movies[index];
+        var directorName = "Director: " + directors[index];
+        var boxOfficeAmount = "Box Office: " + boxOffice[index];
+        var movieDescription = description[index];
+        //Title of page
+        var titlePage = "Action";
+        var titleH1 = document.createElement("h1");
+        titleH1.setAttribute("class", "pictureImage");
+        titleDiv.setAttribute("style", "text-decoration: underline; color: #FED039");
+        //card creation. To add another class to card, just space and add class name
+        var card = document.createElement("div");
+        card.setAttribute("class", "card card-background");
+        //card content creation
+        //image creation
+        var cardImage = document.createElement("img");
+        cardImage.setAttribute("class", "pictureImage")
+        cardImage.setAttribute("src", imageName);
+        //card title creation
+        var cardTitle = document.createElement("h1");
+        cardTitle.setAttribute("class", "card-header card-header-background");
+        cardTitle.setAttribute("style", "text-align: center; color: #FED039")
+        cardTitle.appendChild(document.createTextNode(movieName));
+        //card content
+        var directorText = document.createElement("p");
+        directorText.setAttribute("class", "card-text");
+        directorText.appendChild(document.createTextNode(directorName));
+        var boxOfficeText = document.createElement("p");
+        boxOfficeText.setAttribute("class", "card-text");
+        boxOfficeText.appendChild(document.createTextNode(boxOfficeAmount));
+        var descriptionCard = document.createElement("p");
+        descriptionCard.setAttribute("class", "card-text");
+        descriptionCard.appendChild(document.createTextNode(movieDescription));
+        //Creating the card content
+        card.appendChild(cardTitle);
+        card.appendChild(cardImage);
+        card.appendChild(directorText);
+        card.appendChild(boxOfficeText);
+        card.appendChild(descriptionCard);
+        //appending to inner wrap div
+        gridDiv.appendChild(card);
+    }
+	
+	function breakUpURLParameters(url) {        //analyze and output the url parameters as a useful array to caller
+        //  create a link in the DOM and set its href
+        var link = document.createElement('a');
+        link.setAttribute('href', url);
+        console.log("path variable is " + url);
+
+        //  return an easy-to-use object that breaks apart the path
+        return {
+            host:     link.hostname,  //  'example.com'
+            port:     link.port,      //  12345
+            search:   mapMaker(link.search),  //  {startIndex: 1, pageSize: 10}
+            path:     link.pathname,  //  '/blog/foo/bar'
+            protocol: link.protocol   //  'http:'
+        }
+    }
+
+  function mapMaker(search, preserveDuplicates) { //responsible for obtaining all url params, representing them into an array
+      //  option to preserve duplicate keys (e.g. 'sort=name&sort=age')
+      preserveDuplicates = preserveDuplicates || false;  //  disabled by default
+
+      var outputNoDupes = {};
+      var returnableArray = [];  //  optional output array to preserve duplicate keys
+
+      //  sanity check
+      if(!search) throw new Error('mapMaker: your search input param is misformed?');
+
+      //  remove ? character from your url (?foo=1&bar=2 -> 'foo=1&bar=2')
+      search = search.split('?')[1];
+
+      //  split apart your keys into a useful array of key/value pairs ('foo=1&bar=2' -> ['foo=1', 'bar=2'])
+      search = search.split('&');
+
+      //  separate keys from values (['foo=1', 'bar=2'] -> [{foo:1}, {bar:2}])
+      //  then package as an array for your caller to use as variables
+      returnableArray = search.map(function(keyval){
+                                   var out = {};
+                                   keyval = keyval.split('=');
+                                   out[keyval[0]] = keyval[1];
+                                   outputNoDupes[keyval[0]] = keyval[1]; //  might as well do the no-dupe work too while we're in the loop
+                                   return out;
+                                   });
+                                   return (preserveDuplicates) ? returnableArray : outputNoDupes;
+  }
+	
+    document.body.appendChild(gridDiv);
+</script>
+</html>
